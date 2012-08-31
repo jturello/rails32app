@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 gem 'thin'
 gem 'pg', '0.14.0'
+gem 'jquery-rails', '2.0.2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -10,7 +11,15 @@ gem 'pg', '0.14.0'
 
 group :development, :test do
   gem 'rspec-rails', '2.10.0'
+  gem 'newrelic_rpm', '3.4.1'
+  gem 'sqlite3'
 end
+
+
+group :test do
+  gem 'capybara', '1.1.2'
+end
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -24,11 +33,6 @@ group :assets do
 
 end
 
-gem 'jquery-rails', '2.0.2'
-
-group :test do
-  gem 'capybara', '1.1.2'
-end
 
 group :production do
   
