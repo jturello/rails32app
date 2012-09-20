@@ -4,10 +4,44 @@ describe "StaticPages" do
 
   describe "Home page" do
 
-    it "should have the content 'Rails 3.2 App'" do
+    it "should have h1 'Home'" do
       # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
       visit '/static_pages/home'
-      page.should have_content('Rails 3.2 App')
+      page.should have_selector('h1', :text => 'Rails 3.2 App')
+    end
+
+    it "should have title 'Home'" do
+      visit '/static_pages/home'
+      page.should have_selector('title', 
+        :text => 'Rails 3.2 App - Home')
     end
   end
+
+  describe "Help page" do
+    it "should have h1 'Help'" do
+      visit '/static_pages/help'
+      page.should have_selector('h1', :text => 'Help')
+    end
+
+    it "should have title 'Help'" do
+      visit '/static_pages/help'
+      page.should have_selector('title', 
+        :text => 'Rails 3.2 App - Help')
+    end
+  end
+
+  describe "About page" do
+
+    it "should have h1 'About Us'" do
+      visit '/static_pages/about'
+      page.should have_selector('h1', :text => 'About Us')
+    end
+
+    it "should have title 'About Us'" do
+      visit '/static_pages/about'
+      page.should have_selector('title', 
+        :text => 'Rails 3.2 App - About Us')
+    end
+  end
+
 end
