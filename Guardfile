@@ -12,7 +12,8 @@ guard 'spork', :test_unit => false, :quiet => true,
         watch('Gemfile')
         watch('Gemfile.lock')
         watch('spec/spec_helper.rb')
-     #   watch('test/test_helper.rb')
+        watch('test/test_helper.rb')
+        watch('spec/support/')
 end
 
 
