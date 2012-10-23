@@ -3,7 +3,7 @@
 
 require 'active_support/core_ext'
 
-guard 'spork', :test_unit => false, :quiet => true,
+guard :spork, :test_unit => false, :quiet => true,
       :rspec_env => { 'RAILS_ENV' => 'test' } do
         watch('config/application.rb')
         watch('config/environment.rb')
@@ -17,7 +17,7 @@ guard 'spork', :test_unit => false, :quiet => true,
 end
 
 
-guard 'rspec', :version => 2, :all_after_pass => false,
+guard :rspec, :version => 2, :all_after_pass => false,
       :cli => "--color --format nested --format html --out tmp/spec_output/spec_results.html --drb" do
 
   watch(%r{^spec/.+_spec\.rb$})
@@ -36,19 +36,23 @@ guard 'rspec', :version => 2, :all_after_pass => false,
     (m[1][/_pages/] ? "spec/requests/#{m[1]}_spec.rb" :
                       "spec/requests/#{m[1].singularize}_pages_spec.rb")]
   end
+  watch(%r{^app/views/(.+)/}) do |m|
+    (m[1][/_pages/] ? "spec/requests/#{m[1]}_spec.rb" :
+                      "spec/requests/#{m[1].singularize}_pages_spec.rb")
+  end
   watch(%r{^spec/support/(.+)\.rb$})                  { "spec" }
   watch('spec/spec_helper.rb')                        { "spec" }
   watch('spec/temp.rb')                               { "spec" }
   watch('config/routes.rb')                           { "spec" }
-  watch('app/controllers/application_controller.rb')  { "spec/controllers" }
+  #watch('app/controllers/application_controller.rb')  { "spec/controllers" }
   # Capybara request specs
-  #watch(%r{^app/views/(.+)/.*\.(erb|haml)$}) do |m|
+  #watch(%r{^app/views/layouts/(.+)/.*\.(erb|haml)$}) do |m|
   #  "spec/requests/#{m[1]}_spec.rb"
   #end
-  watch(%r{^app/views/(.+)/.*\.(erb|haml)$}) do |m|
-    (m[1][/_pages/] ? "spec/requests/#{m[1]}_spec.rb" :
-                      "spec/requests/#{m[1].singularize}_pages_spec.rb")
-  end
+  #watch(%r{^app/views/(.+)/.*\.(erb|haml)$}) do |m|
+  #  (m[1][/_pages/] ? "spec/requests/#{m[1]}_spec.rb" :
+  #                    "spec/requests/#{m[1].singularize}_pages_spec.rb")
+  #end
 end
 
 
