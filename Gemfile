@@ -11,7 +11,7 @@ gem 'jquery-rails', '2.0.2'
 
 
 group :development, :test do
-  gem 'rspec-rails', '2.11.0'
+  gem 'rspec-rails', '2.11.4'
   gem 'newrelic_rpm', '3.4.1'
   gem 'sqlite3'
   gem 'guard-rspec', '0.5.5'

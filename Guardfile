@@ -44,11 +44,11 @@ guard :rspec, :version => 2, :all_after_pass => false,
   watch('spec/spec_helper.rb')                        { "spec" }
   watch('spec/temp.rb')                               { "spec" }
   watch('config/routes.rb')                           { "spec" }
-  #watch('app/controllers/application_controller.rb')  { "spec/controllers" }
+  #watch('app/controllers/application_controller.rb') { "spec/controllers" }
   # Capybara request specs
-  #watch(%r{^app/views/layouts/(.+)/.*\.(erb|haml)$}) do |m|
-  #  "spec/requests/#{m[1]}_spec.rb"
-  #end
+  watch(%r{^app/views/layouts/(.+)/.*\.(erb|haml)$}) do |m|
+    "spec/requests/#{m[1]}_spec.rb"
+  end
   #watch(%r{^app/views/(.+)/.*\.(erb|haml)$}) do |m|
   #  (m[1][/_pages/] ? "spec/requests/#{m[1]}_spec.rb" :
   #                    "spec/requests/#{m[1].singularize}_pages_spec.rb")
