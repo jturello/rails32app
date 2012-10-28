@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
+gem 'bootstrap-sass', '2.1.0.1'
 gem 'thin'
 gem 'pg', '0.14.0'
 gem 'jquery-rails', '2.0.2'
@@ -10,7 +11,7 @@ gem 'jquery-rails', '2.0.2'
 
 
 group :development, :test do
-  gem 'rspec-rails', '2.11.0'
+  gem 'rspec-rails', '2.11.4'
   gem 'newrelic_rpm', '3.4.1'
   gem 'sqlite3'
   gem 'guard-rspec', '0.5.5'
